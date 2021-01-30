@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class PrincipalController extends Controller
 {
     public function principal() {
-        echo 'Olá, seja bem-vindo ao meu primeiro projeto Laravel!';
+        return view('site.principal');
     }
 }
