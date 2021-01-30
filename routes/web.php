@@ -13,17 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
-    return "Olá Mundo!";
+    return "Olá, seja bem-vindo ao meu primeiro projeto Laravel!";
 });
+*/
 
-Route::get('/sobre-nos', function () {
-    return "Sobre nós";
-});
+Route::get('/', 'PrincipalController@principal');
 
-Route::get('/contato', function () {
-    return "Contato";
-});
+Route::get('/sobre-nos', 'SobreNosController@sobreNos');
+
+Route::get('/contato', 'ContatoController@contato');
 
 // Route::get($uri, $callback);
 
