@@ -20,13 +20,15 @@ Route::get('/', function () {
 */
 
 Route::get('/', 'PrincipalController@principal');
-
 Route::get('/sobre-nos', 'SobreNosController@sobreNos');
-
 Route::get('/contato', 'ContatoController@contato');
-// nome, categoria, assunto, mensagem
 
+Route::get('/login', function(){ return 'Login'; });
+Route::get('/clientes', function(){ return 'Clientes'; });
+Route::get('/fornecedores', function() { return 'Fornecedores'; });
 
+// Exemplos de parametrização e regex
+/*
 Route::get(
     '/contato/{nome?}/{categoria_id?}', // 
     function(
@@ -37,8 +39,7 @@ Route::get(
                   Contato: {$categoria_id} <br>";
         }
 )->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
-
-
+*/
 
 
 
