@@ -24,8 +24,24 @@ Route::get('/', 'PrincipalController@principal');
 Route::get('/sobre-nos', 'SobreNosController@sobreNos');
 
 Route::get('/contato', 'ContatoController@contato');
+// nome, categoria, assunto, mensagem
 
-// Route::get($uri, $callback);
+
+Route::get(
+    '/contato/{nome?}/{categoria?}/{assunto?}/{mensagem?}', 
+    function(
+        string $nome = 'Desconhecido',
+        string $categoria = 'Informação', 
+        string $assunto = 'Contato', 
+        string $mensagem = "mensagem não informada") 
+        {
+            echo "Parâmetro 1: {$nome} <br>
+                Parâmetro 2: {$categoria} <br> 
+                Parâmetro 3: {$assunto} <br> 
+                Parâmetro 4: {$mensagem}";
+        }
+);
+
 
 /* verbo http
 
