@@ -28,21 +28,33 @@ Route::get('/contato', 'ContatoController@contato');
 
 
 Route::get(
-    '/contato/{nome?}/{categoria?}/{assunto?}/{mensagem?}', 
+    '/contato/{nome?}/{categoria_id?}', // 
     function(
         string $nome = 'Desconhecido',
-        string $categoria = 'Informação', 
-        string $assunto = 'Contato', 
-        string $mensagem = "mensagem não informada") 
+        int $categoria_id = 1) 
         {
-            echo "Parâmetro 1: {$nome} <br>
-                Parâmetro 2: {$categoria} <br> 
-                Parâmetro 3: {$assunto} <br> 
-                Parâmetro 4: {$mensagem}";
+            echo "Nome: {$nome} <br>
+                  Contato: {$categoria_id} <br>";
         }
-);
+)->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 /* verbo http
 
 get
@@ -53,3 +65,5 @@ delete
 options
 
 */
+
+
