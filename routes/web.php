@@ -23,9 +23,12 @@ Route::get('/', 'PrincipalController@principal');
 Route::get('/sobre-nos', 'SobreNosController@sobreNos');
 Route::get('/contato', 'ContatoController@contato');
 
-Route::get('/login', function(){ return 'Login'; });
-Route::get('/clientes', function(){ return 'Clientes'; });
-Route::get('/fornecedores', function() { return 'Fornecedores'; });
+Route::prefix('/app')->group(function() {
+    Route::get('/login', function(){ return 'Login'; });
+    Route::get('/clientes', function(){ return 'Clientes'; });
+    Route::get('/fornecedores', function() { return 'Fornecedores'; });
+});
+
 
 // Exemplos de parametrização e regex
 /*
