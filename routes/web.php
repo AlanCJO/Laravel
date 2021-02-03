@@ -30,16 +30,7 @@ Route::prefix('/app')->group(function() {
     Route::get('/produtos', function(){ return 'Produtos'; })->name('app.produtos');
 });
 
-Route::get('/rota1', function() {
-    echo 'Rota 1';
-})->name('site.rota1');
-
-
-Route::get('/rota2', function() {
-    return redirect()->route('site.rota1');
-})->name('site.rota2');
-
-// Route::redirect('/rota2', '/rota1');
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
 
 Route::fallback(function() {
     echo 'A rota acessada não existe. <a href="'.route('site.index').'"> 
@@ -70,6 +61,17 @@ Route::fallback(function() {
 
 
 
+// Route::get('/rota1', function() {
+//     echo 'Rota 1';
+// })->name('site.rota1');
+
+
+// Route::get('/rota2', function() {
+//     return redirect()->route('site.rota1');
+// })->name('site.rota2');
+
+// Route::redirect('/rota2', '/rota1');
+
 
 // Exemplos de parametrização e regex
 /*
@@ -85,21 +87,6 @@ Route::get(
 )->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 /* verbo http
 
 get
