@@ -73,7 +73,6 @@ Route::get('/', function () {
 
 // Route::redirect('/rota2', '/rota1');
 
-
 // Exemplos de parametrização e regex
 /*
 Route::get(
