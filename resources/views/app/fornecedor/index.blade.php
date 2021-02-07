@@ -1,6 +1,5 @@
 <h4>Fornecedor</h4>
 
-
 {{ 'Teste' }}
 <?= 'Teste' ?> 
 
@@ -18,17 +17,45 @@
     */
 @endphp
 
-{{-- @unless executa se o retorno for false --}}
 
-{{-- @dd($fornecedores) --}}
+@isset($fornecedores)
+    <p>Fornecedor: {{ $fornecedores[0]['nome'] }} </p>
+    <p>Status: {{ $fornecedores[1]['status'] }}</p>
 
-<h4>Fornecedor: {{ $fornecedores[0]['nome'] }} </h4>
-<h4>Status: {{ $fornecedores[0]['status'] }} </h4>
+    @isset($fornecedores[1]['cnpj'])
+        <p>CNPJ: {{ $fornecedores[1]['cnpj'] }}</p>
+    @endisset
+   
+@endisset
+
+
+@unless($fornecedores[0]['status'] == 'S')
+<p>Fornecedor Inativo</p>
+@endunless
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {{-- @if( !($fornecedores[0]['status'] == 'S') )
     <p>Fornecedor Inativo</p>
 @endif --}}
 
-@unless($fornecedores[0]['status'] == 'S')
-    <p>Fornecedor Inativo</p>
-@endunless
+{{-- @unless executa se o retorno for false --}}
+
+{{-- @dd($fornecedores) --}}
