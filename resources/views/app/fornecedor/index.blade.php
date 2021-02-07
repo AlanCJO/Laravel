@@ -27,20 +27,18 @@
 
 
 @isset($fornecedores)
-    <p>Fornecedor: {{ $fornecedores[0]['nome'] }} </p>
-    <p>Status: {{ $fornecedores[1]['status'] }}</p>
-
-    @isset($fornecedores[0]['cnpj'])
-        <p>CNPJ: {{ $fornecedores[0]['cnpj'] }}</p>
-
-        @empty($fornecedores[0]['cnpj'])
-            <p>- Vazio</p>
-        @endempty
-
-    @endisset
+    Fornecedor: {{ $fornecedores[0]['nome'] }} 
+    <br>
+    Status: {{ $fornecedores[1]['status'] }}
+    <br>
+    CNPJ: {{ $fornecedores[1]['cnpj'] ?? '' }}
+    <!-- 
+        $variável testada não estiver definida (isset)
+        ou
+        $variável testada possuior o valor null
+    -->
    
 @endisset
-
 
 @unless($fornecedores[0]['status'] == 'S')
 <p>Fornecedor Inativo</p>
