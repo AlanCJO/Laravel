@@ -36,7 +36,7 @@
         @empty($fornecedores[0]['cnpj'])
             <p>- Vazio</p>
         @endempty
-        
+
     @endisset
    
 @endisset
@@ -45,6 +45,7 @@
 @unless($fornecedores[0]['status'] == 'S')
 <p>Fornecedor Inativo</p>
 @endunless
+
 
 
 

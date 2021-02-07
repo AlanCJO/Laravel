@@ -21,9 +21,11 @@ class FornecedorController extends Controller
             ]
         ];
 
-        $teste = '';
-
-        return view('app.fornecedor.index', compact('fornecedores', 'teste'));
+        // condicao ? se verdadeiro : se falso;
+        $msg = isset($fornecedores[0]['cnpj']) ? 'CNPJ informado' : 'CNPJ não informado';
+        // echo $msg;
+        
+        return view('app.fornecedor.index', compact('fornecedores'));
         // return view('app.fornecedor.index');
     }
 }
