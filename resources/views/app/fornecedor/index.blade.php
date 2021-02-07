@@ -13,7 +13,15 @@
 
 @php 
     /*
-        if(!<condicao>) {} // enquanto executa se o retorno for true
+        if(empty($variavel)) {} // retornar true se a variável estiver vazia
+        - ''
+        - 0
+        - 0.0
+        - '0'
+        - null
+        - false
+        - array()
+        - $var
     */
 @endphp
 
@@ -22,8 +30,13 @@
     <p>Fornecedor: {{ $fornecedores[0]['nome'] }} </p>
     <p>Status: {{ $fornecedores[1]['status'] }}</p>
 
-    @isset($fornecedores[1]['cnpj'])
-        <p>CNPJ: {{ $fornecedores[1]['cnpj'] }}</p>
+    @isset($fornecedores[0]['cnpj'])
+        <p>CNPJ: {{ $fornecedores[0]['cnpj'] }}</p>
+
+        @empty($fornecedores[0]['cnpj'])
+            <p>- Vazio</p>
+        @endempty
+        
     @endisset
    
 @endisset
