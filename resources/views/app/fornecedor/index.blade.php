@@ -14,7 +14,9 @@
     */
 @endphp
 
-    @foreach($fornecedores as $indice => $fornecedor)
+@isset($fornecedores)
+
+    @forelse($fornecedores as $indice => $fornecedor)
         Fornecedor: {{ $fornecedor['nome'] }} 
         <br>
         Status: {{ $fornecedor['status'] }}
@@ -23,4 +25,8 @@
         <br>
         Telefone: ({{ $fornecedore['ddd'] ?? '' }} {{ $fornecedor['telefone'] ?? '' }})
         <hr>
-    @endforeach
+    @empty
+        Não existem fornecedores cadastrador
+    @endforelse
+
+@endisset
